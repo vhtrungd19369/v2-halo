@@ -1,5 +1,5 @@
-export interface category {
-    Id_category: string;
-    Name_category: string;
-    Description_category: string;
+export interface CategoryInterface {
+    Id_category?: string;
+    name: string;
+    description?: string;
 }
