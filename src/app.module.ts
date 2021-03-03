@@ -22,7 +22,9 @@ import { ImportDetailModule } from './tables/import-detail/import-detail.module'
     ExportDetailModule,
     ImportModule,
     ImportDetailModule,
-    MongooseModule.forRoot(config.mongoURI),
+
+    MongooseModule.forRoot('mongodb+srv://test:test@demo.htzax.mongodb.net/test'),
+    // MongooseModule.forRoot(config.mongoURI),
   ],
   controllers: [
     AppController

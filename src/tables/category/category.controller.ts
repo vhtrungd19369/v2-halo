@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { CreateCategoryDto } from 'src/dtos/create-category.dto';
+import { CategoryInterface } from 'src/interfaces/category.interface';
 import { CategoryService } from './category.service';
-import { CreateCategoryDto } from './dto/create-category.dto';
-import { CategoryInterface } from './interfaces/category.interface';
 
 @Controller('category')
 export class CategoryController {
@@ -19,7 +19,7 @@ export class CategoryController {
 
     @Post()
     async create(@Body() createCategoryDto: CreateCategoryDto): Promise<CategoryInterface> {
-        return await this.categoryService.create(createCategoryDto );
+        return await this.categoryService.create(createCategoryDto);
     }
 
     @Delete(':Id_category')
