@@ -8,7 +8,7 @@ import { CategoryInterface } from 'src/interfaces/category.interface';
 export class CategoryService {
     constructor(@InjectModel('Category') private readonly categoryModel:Model<CategoryInterface & Document>) {}
  
-    async findAll(): Promise<CategoryInterface[]>{
+    async findAll(): Promise<CategoryInterface[]> {
         return await this.categoryModel.find();
     }
 
@@ -16,7 +16,7 @@ export class CategoryService {
         return await this.categoryModel.findOne({_id: id});
     }
 
-    async create(createCategoryDto:CreateCategoryDto): Promise<CategoryInterface>{
+    async create(createCategoryDto:CreateCategoryDto): Promise<CategoryInterface> {
         const newCat = new this.categoryModel(createCategoryDto);
         
         return await newCat.save();

@@ -17,7 +17,7 @@ export class CreateEmployeesDto {
     readonly mail: string;
 
     @ApiProperty({
-        type: String,
+        type: Number,
         description: 'The phone of the category position',
         default: '',
     })

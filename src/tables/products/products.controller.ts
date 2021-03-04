@@ -1,10 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { ApiCreatedResponse, ApiForbiddenResponse, ApiOkResponse } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiForbiddenResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { CreateProductDto } from 'src/dtos/create-product.dto';
 import { ProductInterface } from 'src/interfaces/product.interface';
 import { ProductsService } from './products.service';
 
 @Controller('products')
+@ApiTags('product')
+
 export class ProductsController {
     constructor(private readonly productService: ProductsService) {}
 
