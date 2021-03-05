@@ -5,7 +5,7 @@ import { EmployeesInterface } from 'src/interfaces/employees.interface';
 import { EmployeesService } from './employees.service';
 
 @Controller('employees')
-@ApiTags('employees')
+@ApiTags('Employees')
 
 export class EmployeesController {
     constructor( private readonly employeesService: EmployeesService ) {}

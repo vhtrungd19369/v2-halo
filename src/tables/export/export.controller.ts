@@ -5,7 +5,7 @@ import { ExportInterface } from 'src/interfaces/export.interface';
 import { ExportService } from './export.service';
 
 @Controller('export')
-@ApiTags('export')
+@ApiTags('Export')
 
 export class ExportController {
     constructor( private readonly exportService: ExportService) {}
@@ -17,23 +17,22 @@ export class ExportController {
 
     @Get(':Id_export')
     async findOne(@Param('Id_export')id: string): Promise<ExportInterface> {
-        return await this.exportService.findOne(id);
+        return await this.exportService.findOne(id)
     }
 
     @Post()
     async create(@Body() createExportDto:CreateExportDto): Promise<ExportInterface> {
-        return await this.exportService.create(createExportDto);
+        return await this.exportService.create(createExportDto)
     }
 
     @Delete(':Id_export')
     async delete(@Param('Id_export')id: string): Promise<ExportInterface> {
-        return await this.exportService.delete(id);
+        return await this.exportService.delete(id)
     }
 
     @Put(':Id_export')
     async update(@Param('Id_export')id:string, @Body() updateCreateDto: CreateExportDto): Promise<ExportInterface> {
-        return await this.exportService.update(id, updateCreateDto );
+        return await this.exportService.update(id, updateCreateDto )
     }
-
 
 }

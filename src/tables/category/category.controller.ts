@@ -5,7 +5,7 @@ import { CategoryInterface } from 'src/interfaces/category.interface';
 import { CategoryService } from './category.service';
 
 @Controller('category')
-@ApiTags('category')
+@ApiTags('Category')
 export class CategoryController {
     constructor( private readonly categoryService: CategoryService) {}
 

@@ -5,7 +5,7 @@ import { ProductInterface } from 'src/interfaces/product.interface';
 import { ProductsService } from './products.service';
 
 @Controller('products')
-@ApiTags('product')
+@ApiTags('Product')
 
 export class ProductsController {
     constructor(private readonly productService: ProductsService) {}

@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class CreateEportDto {
+export class CreateExpDetailDto {
     @ApiProperty({
         type: String,
         description: 'The Id_emport of the category position',
