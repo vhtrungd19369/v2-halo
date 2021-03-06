@@ -25,15 +25,14 @@ export class ImportController {
         return await this.importService.create(createImportDto)
     }
 
-    // @Put(':Id_import')
-    // async update(@Param('Id_import')id: string, @Body() updateImportDto:CreateImportDto): Promise<ImportInterface>{
-    //     return await this.importService.update(id, updateImportDto)
-    // }
-
     @Delete(':Id_import')
     async delete(@Param('Id_import')id: string): Promise<ImportInterface>{
         return await this.importService.delete(id)
     }
 
+    @Put(':Id_import')
+    async update(@Param('Id_import')id: string, @Body() updateImportDto:CreateImportDto): Promise<ImportInterface>{
+        return await this.importService.update(id, updateImportDto)
+    }
 
 }

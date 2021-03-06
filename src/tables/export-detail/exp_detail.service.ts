@@ -6,7 +6,7 @@ import { ExpDetailInterface } from 'src/interfaces/expdetail.interface';
 
 @Injectable()
 export class ExportDetailService {
-    constructor(@InjectModel('Expdetail') private readonly expDetailModel:Model<ExpDetailInterface & Document>) {}
+    constructor(@InjectModel('ExpDetail') private readonly expDetailModel:Model<ExpDetailInterface & Document>) {}
         
         async findAll(): Promise<ExpDetailInterface[]> {
             return await this.expDetailModel.find();

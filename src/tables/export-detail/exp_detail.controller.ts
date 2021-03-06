@@ -4,8 +4,8 @@ import { CreateExpDetailDto } from 'src/dtos/create-expdetail.dto';
 import { ExpDetailInterface } from 'src/interfaces/expdetail.interface';
 import { ExportDetailService } from './exp_detail.service';
 
-@Controller('Expdetail')
-@ApiTags('Expdetail')
+@Controller('expdetail')
+@ApiTags('ExpDetail')
 
 export class ExportDetailController {
     constructor( private readonly expDetailService: ExportDetailService) {}

@@ -32,7 +32,7 @@ export class ExportController {
 
     @Put(':Id_export')
     async update(@Param('Id_export')id:string, @Body() updateCreateDto: CreateExportDto): Promise<ExportInterface> {
-        return await this.exportService.update(id, updateCreateDto )
+        return await this.exportService.update(id, updateCreateDto)
     }
 
 }

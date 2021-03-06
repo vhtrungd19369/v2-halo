@@ -2,6 +2,6 @@ export interface ImportInterface {
     Id_impImpor?: string;
     Id_employees?: string;
     contract: number;
-    date: string;
+    date: number;
     description: string;
 }

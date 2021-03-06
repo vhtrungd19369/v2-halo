@@ -6,7 +6,7 @@ import { ExportDetailService } from './exp_detail.service';
 
 @Module({
     imports: [MongooseModule.forFeature([{
-        name: 'Expdetail',
+        name: 'ExpDetail',
         schema: ExpDetailSchema
     }])],
     controllers: [ExportDetailController],
