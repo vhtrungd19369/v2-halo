@@ -15,8 +15,8 @@ export class ImportDetailController {
         return await this.impDetailService.findAll();
     }
 
-    @Get(':Id_impDetail')
-    async findOne(@Param('Id_impDetail')id: string): Promise<ImpDetailInterface> {
+    @Get(':id')
+    async findOne(@Param('id')id: string): Promise<ImpDetailInterface> {
         return await this.impDetailService.findOne(id);
     }
 
@@ -25,13 +25,13 @@ export class ImportDetailController {
         return await this.impDetailService.create(createImpDetailDto);
     }
 
-    @Delete(':Id_impDetail')
-    async delete(@Param('Id_impDetail')id: string): Promise<ImpDetailInterface> {
+    @Delete(':id')
+    async delete(@Param('id')id: string): Promise<ImpDetailInterface> {
         return await this.impDetailService.delete(id);
     }
 
-    @Put(':Id_impDetail')
-    async update(@Param('Id_impDetail')id: string, @Body() updateCreateImpDetailDto: CreateImpDetailDto): Promise<ImpDetailInterface>{
+    @Put(':id')
+    async update(@Param('id')id: string, @Body() updateCreateImpDetailDto: CreateImpDetailDto): Promise<ImpDetailInterface>{
         return await this.impDetailService.update(id, updateCreateImpDetailDto);
     }
 

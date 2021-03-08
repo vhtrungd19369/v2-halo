@@ -15,8 +15,8 @@ export class ImportController {
         return await this.importService.findAll()
     }
 
-    @Get(':Id_import')
-    async findOne(@Param('Id_import')id: string): Promise<ImportInterface>{
+    @Get(':id')
+    async findOne(@Param('id')id: string): Promise<ImportInterface>{
         return await this.importService.findOne(id)
     }
 
@@ -25,13 +25,13 @@ export class ImportController {
         return await this.importService.create(createImportDto)
     }
 
-    @Delete(':Id_import')
-    async delete(@Param('Id_import')id: string): Promise<ImportInterface>{
+    @Delete(':id')
+    async delete(@Param('id')id: string): Promise<ImportInterface>{
         return await this.importService.delete(id)
     }
 
-    @Put(':Id_import')
-    async update(@Param('Id_import')id: string, @Body() updateImportDto:CreateImportDto): Promise<ImportInterface>{
+    @Put(':id')
+    async update(@Param('id')id: string, @Body() updateImportDto:CreateImportDto): Promise<ImportInterface>{
         return await this.importService.update(id, updateImportDto)
     }
 

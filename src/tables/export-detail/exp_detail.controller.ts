@@ -15,8 +15,8 @@ export class ExportDetailController {
         return await this.expDetailService.findAll();
     }
 
-    @Get(':Id_expDetail')
-    async findOne(@Param('Id_expDetail')id: string): Promise<ExpDetailInterface> {
+    @Get(':id')
+    async findOne(@Param('id')id: string): Promise<ExpDetailInterface> {
         return await this.expDetailService.findOne(id);
     }
 
@@ -25,13 +25,13 @@ export class ExportDetailController {
         return await this.expDetailService.create(createExpDetailDto);
     }
 
-    @Put(':Id_expDetail')
-    async update(@Param('Id_expDetail')id: string, @Body() updateExpDetailDto:CreateExpDetailDto): Promise<ExpDetailInterface> {
+    @Put(':id')
+    async update(@Param('id')id: string, @Body() updateExpDetailDto:CreateExpDetailDto): Promise<ExpDetailInterface> {
         return await this.expDetailService.update(id, updateExpDetailDto);
     }
 
-    @Delete(':Id_expDetail')
-    async delete(@Param('Id_expDetail')id: string): Promise<ExpDetailInterface> {
+    @Delete(':id')
+    async delete(@Param('id')id: string): Promise<ExpDetailInterface> {
         return await this.expDetailService.delete(id);
     }
 

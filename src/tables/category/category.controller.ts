@@ -14,8 +14,8 @@ export class CategoryController {
         return await this.categoryService.findAll()
     }
 
-    @Get(':Id_category')
-    async findOne(@Param('Id_category') id: string): Promise<CategoryInterface> {
+    @Get(':id')
+    async findOne(@Param('id') id: string): Promise<CategoryInterface> {
         return await this.categoryService.findOne(id);
     }
 
@@ -24,13 +24,13 @@ export class CategoryController {
         return await this.categoryService.create(createCategoryDto);
     }
 
-    @Delete(':Id_category')
-    async delete(@Param('Id_category') id: string): Promise<CategoryInterface> {
+    @Delete(':id')
+    async delete(@Param('id') id: string): Promise<CategoryInterface> {
         return await this.categoryService.delete(id);
     }
 
-    @Put(':Id_category')
-    async update(@Param('Id_category') id:string, @Body() updateCategory: CreateCategoryDto): Promise<CategoryInterface> {
+    @Put(':id')
+    async update(@Param('id') id:string, @Body() updateCategory: CreateCategoryDto): Promise<CategoryInterface> {
         return await this.categoryService.update(id, updateCategory );
     }
 

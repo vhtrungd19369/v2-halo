@@ -15,8 +15,8 @@ export class EmployeesController {
         return await this.employeesService.findAll();
     }
 
-    @Get(':Id_employees')
-    async findOne(@Param('Id_employees') id: string): Promise<EmployeesInterface>{
+    @Get(':id')
+    async findOne(@Param('id') id: string): Promise<EmployeesInterface>{
         return await this.employeesService.findOne(id);
     }
 
@@ -25,13 +25,13 @@ export class EmployeesController {
         return await this.employeesService.create(createEmployeesDto);
     }
 
-    @Delete(':Id_employees')
-    async delete(@Param('Id_employees') id: string): Promise<EmployeesInterface> {
+    @Delete(':id')
+    async delete(@Param('id') id: string): Promise<EmployeesInterface> {
         return await this.employeesService.delete(id);
     }
 
-    @Put(':Id_employees')
-    async update(@Param('Id_employees') id: string, @Body() updateEmployees: CreateEmployeesDto): Promise<EmployeesInterface> {
+    @Put(':id')
+    async update(@Param('id') id: string, @Body() updateEmployees: CreateEmployeesDto): Promise<EmployeesInterface> {
         return await this.employeesService.update(id, updateEmployees);
     }
 
