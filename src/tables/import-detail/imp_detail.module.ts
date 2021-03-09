@@ -5,12 +5,15 @@ import { ImportDetailController } from './imp_detail.controller';
 import { ImportDetailService } from './imp_detail.service';
 
 @Module({
-    imports: [ MongooseModule.forFeature([{
+  imports: [
+    MongooseModule.forFeature([
+      {
         name: 'ImpDetail',
-        schema: ImpDetailSchema
-    }])],
-    controllers: [ImportDetailController],
-    providers: [ImportDetailService]
+        schema: ImpDetailSchema,
+      },
+    ]),
+  ],
+  controllers: [ImportDetailController],
+  providers: [ImportDetailService],
 })
-
-export class ImportDetailModule{}
+export class ImportDetailModule {}

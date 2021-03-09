@@ -20,10 +20,9 @@ import { CategorySchema } from './category.schema';
 
 // export const ProductSchema = SchemaFactory.createForClass(Product);
 
-
 export const ProductSchema = new mongoose.Schema({
-    name: String,
-    description: String,
+  name: String,
+  description: String,
 });
 
-// export const ProductSchema = 
+// export const ProductSchema =

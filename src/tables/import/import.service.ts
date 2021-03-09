@@ -3,32 +3,39 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Document } from 'mongoose';
 import { ImportInterface } from 'src/interfaces/import.interface';
 import { CreateImportDto } from 'src/dtos/create-import.dto';
-
+import { mainModule } from 'node:process';
 
 @Injectable()
 export class ImportService {
-    constructor(@InjectModel('Import') private readonly importModel:Model<ImportInterface & Document>) {}
+  constructor(
+    @InjectModel('Import')
+    private readonly importModel: Model<ImportInterface & Document>,
+  ) {}
 
-    async findAll(): Promise<ImportInterface[]>{
-        return await this.importModel.find();
-    }
+  async findAll(): Promise<ImportInterface[]> {
+    return this.importModel.find();
+  }
 
-    async findOne(id: string):Promise<ImportInterface> {
-        return await this.importModel.findOne({_id:id});
-    }
+  async findOne(id: string): Promise<ImportInterface> {
+    return this.importModel.findOne({ _id: id });
+  }
 
-    async create(createImportDto: CreateImportDto): Promise<ImportInterface>{
-        const newImp = new this.importModel(createImportDto);
+  async create(createImportDto: CreateImportDto): Promise<ImportInterface> {
+    const newImp = new this.importModel(createImportDto);
 
-        return await newImp.save();
-    }
+    return await newImp.save();
+  }
 
-    async delete(id: string): Promise<ImportInterface>{
-        return await this.importModel.findByIdAndDelete(id);
-    }
+  async delete(id: string): Promise<ImportInterface> {
+    return this.importModel.findByIdAndDelete(id);
+  }
 
-    async update(id: string, importInterface: ImportInterface): Promise<ImportInterface> {
-        return await this.importModel.findByIdAndUpdate(id, importInterface, {new: true});
-    }
-
+  async update(
+    id: string,
+    importInterface: ImportInterface,
+  ): Promise<ImportInterface> {
+    return this.importModel.findByIdAndUpdate(id, importInterface, {
+      new: true,
+    });
+  }
 }

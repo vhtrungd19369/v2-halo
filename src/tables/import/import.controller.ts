@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateImportDto } from 'src/dtos/create-import.dto';
 import { ImportInterface } from 'src/interfaces/import.interface';
@@ -6,33 +14,36 @@ import { ImportService } from './import.service';
 
 @Controller('import')
 @ApiTags('Import')
-
 export class ImportController {
-    constructor( private readonly importService: ImportService) {}
-        
-    @Get()
-    async findAll(): Promise<ImportInterface[]>{
-        return await this.importService.findAll()
-    }
+  constructor(private readonly importService: ImportService) {}
 
-    @Get(':id')
-    async findOne(@Param('id')id: string): Promise<ImportInterface>{
-        return await this.importService.findOne(id)
-    }
+  @Get()
+  async findAll(): Promise<ImportInterface[]> {
+    return await this.importService.findAll();
+  }
 
-    @Post()
-    async create(@Body() createImportDto:CreateImportDto): Promise<ImportInterface>{
-        return await this.importService.create(createImportDto)
-    }
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<ImportInterface> {
+    return await this.importService.findOne(id);
+  }
 
-    @Delete(':id')
-    async delete(@Param('id')id: string): Promise<ImportInterface>{
-        return await this.importService.delete(id)
-    }
+  @Post()
+  async create(
+    @Body() createImportDto: CreateImportDto,
+  ): Promise<ImportInterface> {
+    return await this.importService.create(createImportDto);
+  }
 
-    @Put(':id')
-    async update(@Param('id')id: string, @Body() updateImportDto:CreateImportDto): Promise<ImportInterface>{
-        return await this.importService.update(id, updateImportDto)
-    }
+  @Delete(':id')
+  async delete(@Param('id') id: string): Promise<ImportInterface> {
+    return await this.importService.delete(id);
+  }
 
+  @Put(':id')
+  async update(
+    @Param('id') id: string,
+    @Body() updateImportDto: CreateImportDto,
+  ): Promise<ImportInterface> {
+    return await this.importService.update(id, updateImportDto);
+  }
 }

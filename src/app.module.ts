@@ -12,7 +12,6 @@ import { ImportModule } from './tables/import/import.module';
 import { ImportDetailModule } from './tables/import-detail/imp_detail.module';
 
 
-
 @Module({
   imports: [
     ProductsModule,
@@ -23,14 +22,13 @@ import { ImportDetailModule } from './tables/import-detail/imp_detail.module';
     ImportModule,
     ImportDetailModule,
 
-    MongooseModule.forRoot('mongodb+srv://test:test@demo.htzax.mongodb.net/test'),
+    MongooseModule.forRoot(
+      'mongodb+srv://test:test@demo.htzax.mongodb.net/test',
+    ),
+
     // MongooseModule.forRoot(config.mongoURI),
   ],
-  controllers: [
-    AppController
-  ],
-  providers: [
-    AppService
-  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

@@ -6,28 +6,37 @@ import { CategoryInterface } from 'src/interfaces/category.interface';
 
 @Injectable()
 export class CategoryService {
-    constructor(@InjectModel('Category') private readonly categoryModel:Model<CategoryInterface & Document>) {}
- 
-    async findAll(): Promise<CategoryInterface[]> {
-        return await this.categoryModel.find();
-    }
+  constructor(
+    @InjectModel('Category')
+    private readonly categoryModel: Model<CategoryInterface & Document>,
+  ) {}
 
-    async findOne(id:string): Promise<CategoryInterface> {
-        return await this.categoryModel.findOne({_id: id});
-    }
+  async findAll(): Promise<CategoryInterface[]> {
+    return this.categoryModel.find();
+  }
 
-    async create(createCategoryDto:CreateCategoryDto): Promise<CategoryInterface> {
-        const newCat = new this.categoryModel(createCategoryDto);
-        
-        return await newCat.save();
-    }
+  async findOne(id: string): Promise<CategoryInterface> {
+    return this.categoryModel.findOne({ _id: id });
+  }
 
-    async delete(Id_category: string): Promise<CategoryInterface> {
-        return await this.categoryModel.findByIdAndRemove(Id_category);
-    }
+  async create(
+    createCategoryDto: CreateCategoryDto,
+  ): Promise<CategoryInterface> {
+    const newCat = new this.categoryModel(createCategoryDto);
 
-    async update(Id_category: string, category: CategoryInterface): Promise<CategoryInterface> {
-        return await this.categoryModel.findByIdAndUpdate(Id_category, category, {new: true});
-    }
+    return await newCat.save();
+  }
 
+  async delete(Id_category: string): Promise<CategoryInterface> {
+    return this.categoryModel.findByIdAndRemove(Id_category);
+  }
+
+  async update(
+    Id_category: string,
+    category: CategoryInterface,
+  ): Promise<CategoryInterface> {
+    return this.categoryModel.findByIdAndUpdate(Id_category, category, {
+      new: true,
+    });
+  }
 }

@@ -5,11 +5,15 @@ import { ExportDetailController } from './exp_detail.controller';
 import { ExportDetailService } from './exp_detail.service';
 
 @Module({
-    imports: [MongooseModule.forFeature([{
+  imports: [
+    MongooseModule.forFeature([
+      {
         name: 'ExpDetail',
-        schema: ExpDetailSchema
-    }])],
-    controllers: [ExportDetailController],
-    providers: [ExportDetailService]
+        schema: ExpDetailSchema,
+      },
+    ]),
+  ],
+  controllers: [ExportDetailController],
+  providers: [ExportDetailService],
 })
 export class ExportDetailModule {}

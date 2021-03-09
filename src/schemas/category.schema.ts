@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
 export const CategorySchema = new mongoose.Schema({
-    name: String,
-    description: String,
+  name: String,
+  description: String,
 });

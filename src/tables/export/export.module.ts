@@ -5,11 +5,15 @@ import { ExportController } from './export.controller';
 import { ExportService } from './export.service';
 
 @Module({
-    imports: [MongooseModule.forFeature([{
-        name:'Export',
-        schema: ExportSchema
-    }])],
-    controllers: [ExportController],
-    providers: [ExportService]
+  imports: [
+    MongooseModule.forFeature([
+      {
+        name: 'Export',
+        schema: ExportSchema,
+      },
+    ]),
+  ],
+  controllers: [ExportController],
+  providers: [ExportService],
 })
 export class ExportModule {}
