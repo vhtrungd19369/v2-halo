@@ -22,11 +22,17 @@ import { ImportDetailModule } from './tables/import-detail/imp_detail.module';
     ImportModule,
     ImportDetailModule,
 
+
     MongooseModule.forRoot(
       'mongodb+srv://test:test@demo.htzax.mongodb.net/test',
-    ),
 
-    // MongooseModule.forRoot(config.mongoURI),
+
+    // MongooseModule.forRoot(
+    //     'mongodb+srv://adminone:readWriteAnyDatabase@cluster0.z7ryf.mongodb.net/test11'
+
+
+    // MongooseModule.forRoot(config.mongoURI
+    ),
   ],
   controllers: [AppController],
   providers: [AppService],
