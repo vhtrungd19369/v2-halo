@@ -34,7 +34,7 @@ export class ImportDetailService {
 
   async update(
     id: string,
-    impDetailInterface: ImpDetailInterface,
+    impDetailInterface: CreateImpDetailDto
   ): Promise<ImpDetailInterface> {
     return this.impDetailModel.findByIdAndUpdate(id, impDetailInterface, {
       new: true,
