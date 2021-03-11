@@ -23,7 +23,6 @@ export class ExportDetailService {
     createExpDetailDto: CreateExpDetailDto,
   ): Promise<ExpDetailInterface> {
     const newExpDetail = new this.expDetailModel(createExpDetailDto);
-
     return await newExpDetail.save();
   }
 

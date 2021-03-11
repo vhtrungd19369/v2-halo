@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Document } from 'mongoose';
 import { ImportInterface } from 'src/interfaces/import.interface';
 import { CreateImportDto } from 'src/dtos/create-import.dto';
-import { mainModule } from 'node:process';
 
 @Injectable()
 export class ImportService {

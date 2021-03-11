@@ -1,6 +1,6 @@
 export class ImpDetailInterface {
-  Id_import: string;
-  Id_product: string;
+  Id?: string;
+  product?: string;
   quantity: number;
   unit: string;
 }
