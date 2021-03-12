@@ -1,59 +1,46 @@
 import { Injectable } from '@nestjs/common';
 import { Document, Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { ImpDetailInterface } from 'src/interfaces/impdetail.interface';
+import { Imp_detailInterface } from 'src/interfaces/imp_detail.interface';
 import { CreateImpDetailDto } from '../../dtos/create-impdetail.dto';
 
 @Injectable()
 export class ImportDetailService {
   constructor(
     @InjectModel('ImpDetail')
-    private readonly impDetailModel: Model<ImpDetailInterface & Document>,
+    private readonly impDetailModel: Model<Imp_detailInterface & Document>,
   ) {}
 
-  // async onModuleInit() {
-  //   await this.create({
-  //     quantity: 111,
-  //     unit: '',
-  //     product: '603e0a9281d6ab7625e49a7b',
-  //   });
-  //
-  //   console.log(
-  //     '-ImpD-findOne++++++++>',
-  //     await this.findOne('zz'),
-  //   );
-  // }
-
-  async findAll(): Promise<ImpDetailInterface[]> {
+  async findAll(): Promise<Imp_detailInterface[]> {
     return this.impDetailModel
       .find({})
-      .populate([{ path: 'product' }, { path: 'import' }])
+      .populate([{ path: 'productID' }, { path: 'importID' }])
       .exec();
   }
 
-  async findOne(id: string): Promise<ImpDetailInterface> {
+  async findOne(id: string): Promise<Imp_detailInterface> {
     return await this.impDetailModel
       .findOne({ _id: id })
-      .populate([{ path: 'product' }, { path: 'import' }])
+      .populate([{ path: 'productID' }, { path: 'import' }])
       .exec();
   }
 
   async create(
-    createImpDetailDto: CreateImpDetailDto,
-  ): Promise<ImpDetailInterface> {
-    const newImpDetail = new this.impDetailModel({ ...createImpDetailDto });
+    crtImpDetailDto: CreateImpDetailDto,
+  ): Promise<Imp_detailInterface> {
+    const newImpDetail = new this.impDetailModel({ ...crtImpDetailDto });
 
     return await newImpDetail.save();
   }
 
-  async delete(id: string): Promise<ImpDetailInterface> {
+  async delete(id: string): Promise<Imp_detailInterface> {
     return this.impDetailModel.findByIdAndDelete(id);
   }
 
   async update(
     id: string,
     impDetailInterface: CreateImpDetailDto,
-  ): Promise<ImpDetailInterface> {
+  ): Promise<Imp_detailInterface> {
     return this.impDetailModel.findByIdAndUpdate(id, impDetailInterface, {
       new: true,
     });

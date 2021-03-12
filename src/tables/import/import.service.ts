@@ -19,8 +19,8 @@ export class ImportService {
     return this.importModel.findOne({ _id: id });
   }
 
-  async create(createImportDto: CreateImportDto): Promise<ImportInterface> {
-    const newImp = new this.importModel(createImportDto);
+  async create(crtImportDto: CreateImportDto): Promise<ImportInterface> {
+    const newImp = new this.importModel(crtImportDto);
 
     return await newImp.save();
   }

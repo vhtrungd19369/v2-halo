@@ -6,7 +6,7 @@ export class CreateProductDto {
     description: '',
     default: '',
   })
-  readonly category: string;
+  readonly categoryID: string;
 
   @ApiProperty({
     type: String,

@@ -10,38 +10,38 @@ export class ProductsService {
     @InjectModel('Product')
     private readonly productModel: Model<ProductInterface & Document>,
   ) {}
-
+  //
   // async onModuleInit() {
   //   await this.create({
   //     name: 'String',
   //     description: 'String',
   //     price: 12,
   //     category: '603df1e939a0b55723d32e4f',
-  //     import: '6042e89d8889ad9dc4b4d2e7',
   //   });
   //
   //   console.log(
   //     'rs -Product-findOne--------->',
-  //     await this.findOne('60488b9d7912b4bc9e9f87de'),
+  //     await this.findOne('603e0a9281d6ab7625e49a7b'),
   //   );
   // }
 
   async findAll(): Promise<ProductInterface[]> {
     return this.productModel
       .find({})
-      .populate([{ path: 'category' }])
+      .populate([{ path: 'categoryID' }])
       .exec();
   }
 
   async findOne(id: string): Promise<ProductInterface> {
     return this.productModel
       .findOne({ _id: id })
-      .populate([{ path: 'category' }])
+      .populate([{ path: 'categoryID' }])
       .exec();
   }
 
-  async create(createProductDto: CreateProductDto): Promise<ProductInterface> {
-    const newPro = new this.productModel({ ...createProductDto });
+  async create(crtProductDto: CreateProductDto): Promise<ProductInterface> {
+    // console.log('=========');
+    const newPro = new this.productModel({ ...crtProductDto });
     return await newPro.save();
   }
 

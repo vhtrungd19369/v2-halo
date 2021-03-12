@@ -26,11 +26,6 @@ import { ImportDetailModule } from './tables/import-detail/imp_detail.module';
     MongooseModule.forRoot(
       'mongodb+srv://test:test@demo.htzax.mongodb.net/test',
 
-
-    // MongooseModule.forRoot(
-    //     'mongodb+srv://adminone:readWriteAnyDatabase@cluster0.z7ryf.mongodb.net/test11'
-
-
     // MongooseModule.forRoot(config.mongoURI
     ),
   ],
