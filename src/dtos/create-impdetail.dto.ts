@@ -6,13 +6,6 @@ export class CreateImpDetailDto {
     description: '',
     default: '',
   })
-  readonly productID: string;
-
-  @ApiProperty({
-    type: String,
-    description: '',
-    default: '',
-  })
   readonly importID: string;
 
   @ApiProperty({
@@ -20,7 +13,7 @@ export class CreateImpDetailDto {
     description: '',
     default: '',
   })
-  readonly product: string;
+  readonly productID: string;
 
   @ApiProperty({
     type: Number,

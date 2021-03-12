@@ -3,29 +3,29 @@ import { ApiProperty } from '@nestjs/swagger';
 export class CreateImportDto {
   @ApiProperty({
     type: String,
-    description: 'The Id_employees of the CreateImportDto position',
+    description: '',
     default: '',
   })
-  Id_employees?: string;
+  readonly employeesID: string;
+
+  @ApiProperty({
+    type: Number,
+    description: '',
+    default: '',
+  })
+  readonly contract: number;
+
+  @ApiProperty({
+    type: Number,
+    description: '',
+    default: '',
+  })
+  readonly date: number;
 
   @ApiProperty({
     type: String,
-    description: 'The contract of the CreateImportDto position',
+    description: '',
     default: '',
   })
-  contract: number;
-
-  @ApiProperty({
-    type: String,
-    description: 'The date of the CreateImportDto position',
-    default: '',
-  })
-  date: number;
-
-  @ApiProperty({
-    type: String,
-    description: 'The description of the CreateImportDto position',
-    default: '',
-  })
-  description: string;
+  readonly description: string;
 }

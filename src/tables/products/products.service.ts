@@ -10,24 +10,10 @@ export class ProductsService {
     @InjectModel('Product')
     private readonly productModel: Model<ProductInterface & Document>,
   ) {}
-  //
-  // async onModuleInit() {
-  //   await this.create({
-  //     name: 'String',
-  //     description: 'String',
-  //     price: 12,
-  //     category: '603df1e939a0b55723d32e4f',
-  //   });
-  //
-  //   console.log(
-  //     'rs -Product-findOne--------->',
-  //     await this.findOne('603e0a9281d6ab7625e49a7b'),
-  //   );
-  // }
 
   async findAll(): Promise<ProductInterface[]> {
     return this.productModel
-      .find({})
+      .find()
       .populate([{ path: 'categoryID' }])
       .exec();
   }
@@ -40,7 +26,6 @@ export class ProductsService {
   }
 
   async create(crtProductDto: CreateProductDto): Promise<ProductInterface> {
-    // console.log('=========');
     const newPro = new this.productModel({ ...crtProductDto });
     return await newPro.save();
   }

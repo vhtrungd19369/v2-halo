@@ -12,11 +12,17 @@ export class ExportService {
   ) {}
 
   async findAll(): Promise<ExportInterface[]> {
-    return await this.exportModel.find();
+    return await this.exportModel
+      .find()
+      .populate([{ path: 'employeesID' }])
+      .exec();
   }
 
   async findOne(id: string): Promise<ExportInterface> {
-    return await this.exportModel.findOne({ _id: id });
+    return await this.exportModel
+      .findOne({ _id: id })
+      .populate([{ path: 'employeesID' }])
+      .exec();
   }
 
   async create(createExportDto: CreateExportDto): Promise<ExportInterface> {

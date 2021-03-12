@@ -12,11 +12,17 @@ export class ImportService {
   ) {}
 
   async findAll(): Promise<ImportInterface[]> {
-    return this.importModel.find();
+    return this.importModel
+      .find()
+      .populate([{ path: 'employeesID' }])
+      .exec();
   }
 
   async findOne(id: string): Promise<ImportInterface> {
-    return this.importModel.findOne({ _id: id });
+    return this.importModel
+      .findOne({ _id: id })
+      .populate([{ path: 'employeesID' }])
+      .exec();
   }
 
   async create(crtImportDto: CreateImportDto): Promise<ImportInterface> {

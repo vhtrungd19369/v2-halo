@@ -1,7 +1,7 @@
 export interface Exp_detailInterface {
-  Id_expDetail?: string;
-  Id_emport?: string;
-  Id_product?: string;
-  quantity: number;
-  unit: string;
+  // id?: string;
+  // emportID?: string;
+  // productID?: string;
+  // quantity: number;
+  // unit: string;
 }

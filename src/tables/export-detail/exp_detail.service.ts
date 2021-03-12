@@ -12,11 +12,17 @@ export class ExportDetailService {
   ) {}
 
   async findAll(): Promise<Exp_detailInterface[]> {
-    return this.expDetailModel.find();
+    return this.expDetailModel
+      .find()
+      .populate([{ path: 'exportID' }, { path: 'productID' }])
+      .exec();
   }
 
   async findOne(id: string): Promise<Exp_detailInterface> {
-    return this.expDetailModel.findOne({ _id: id });
+    return this.expDetailModel
+      .findOne({ _id: id })
+      .populate([{ path: 'exportID' }, { path: 'productID' }])
+      .exec();
   }
 
   async create(

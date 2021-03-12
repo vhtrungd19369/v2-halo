@@ -6,26 +6,26 @@ export class CreateExpDetailDto {
     description: '',
     default: '',
   })
-  Id_emport?: string;
+  readonly exportID: string;
 
   @ApiProperty({
     type: String,
     description: '',
     default: '',
   })
-  Id_product?: string;
+  readonly productID: string;
+
+  @ApiProperty({
+    type: Number,
+    description: '',
+    default: '',
+  })
+  readonly quantity: number;
 
   @ApiProperty({
     type: String,
     description: '',
     default: '',
   })
-  quantity: number;
-
-  @ApiProperty({
-    type: String,
-    description: '',
-    default: '',
-  })
-  unit: string;
+  readonly unit: string;
 }

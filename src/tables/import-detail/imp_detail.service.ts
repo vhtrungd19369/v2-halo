@@ -13,15 +13,15 @@ export class ImportDetailService {
 
   async findAll(): Promise<Imp_detailInterface[]> {
     return this.impDetailModel
-      .find({})
-      .populate([{ path: 'productID' }, { path: 'importID' }])
+      .find()
+      .populate([{ path: 'importID' }, { path: 'productID' }])
       .exec();
   }
 
   async findOne(id: string): Promise<Imp_detailInterface> {
     return await this.impDetailModel
       .findOne({ _id: id })
-      .populate([{ path: 'productID' }, { path: 'import' }])
+      .populate([{ path: 'importID' }, { path: 'productID' }])
       .exec();
   }
 

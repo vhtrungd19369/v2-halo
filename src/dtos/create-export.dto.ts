@@ -6,17 +6,17 @@ export class CreateExportDto {
     description: '',
     default: '',
   })
-  Id_employees: string;
+  readonly employeesID: string;
 
   @ApiProperty({
-    type: String,
+    type: Number,
     description: '',
     default: '',
   })
   contract: number;
 
   @ApiProperty({
-    type: String,
+    type: Number,
     description: '',
     default: '',
   })
