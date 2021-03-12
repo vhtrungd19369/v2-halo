@@ -27,8 +27,8 @@ export class EmployeesService {
     return await newEmp.save();
   }
 
-  async delete(Id_employees: string): Promise<EmployeesInterface> {
-    return this.employeesModel.findByIdAndDelete(Id_employees);
+  async delete(ID: string): Promise<EmployeesInterface> {
+    return this.employeesModel.findByIdAndDelete(ID);
   }
 
   async update(

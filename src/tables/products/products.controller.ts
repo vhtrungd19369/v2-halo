@@ -7,20 +7,15 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import {
-  ApiCreatedResponse,
-  ApiForbiddenResponse,
-  ApiOkResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 import { CreateProductDto } from 'src/dtos/create-product.dto';
 import { ProductInterface } from 'src/interfaces/product.interface';
-import { ProductsService } from './products.service';
+import { ProductService } from './products.service';
 
 @Controller('product')
 @ApiTags('Product')
-export class ProductsController {
-  constructor(private readonly productService: ProductsService) {}
+export class ProductController {
+  constructor(private readonly productService: ProductService) {}
 
   @Get()
   async finAll(): Promise<ProductInterface[]> {

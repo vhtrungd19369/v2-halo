@@ -26,20 +26,20 @@ export class ExportService {
   }
 
   async create(createExportDto: CreateExportDto): Promise<ExportInterface> {
-    const newExp = new this.exportModel(createExportDto);
+    const newExp = new this.exportModel({ ...createExportDto });
 
     return await newExp.save();
   }
 
-  async delete(id: string): Promise<ExportInterface> {
-    return await this.exportModel.findByIdAndUpdate(id);
+  async delete(ID: string): Promise<ExportInterface> {
+    return this.exportModel.findByIdAndUpdate(ID);
   }
 
   async update(
     id: string,
     exportInterface: ExportInterface,
   ): Promise<ExportInterface> {
-    return await this.exportModel.findByIdAndUpdate(id, exportInterface, {
+    return this.exportModel.findByIdAndUpdate(id, exportInterface, {
       new: true,
     });
   }
