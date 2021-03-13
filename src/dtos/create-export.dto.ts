@@ -1,11 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateExportDto {
-  @ApiProperty({
-    type: String,
-    description: '',
-    default: '',
-  })
+  @ApiProperty({ type: String, description: '', default: '' })
   readonly employeesID: string;
 
   @ApiProperty({
@@ -18,9 +14,9 @@ export class CreateExportDto {
   @ApiProperty({
     type: Number,
     description: '',
-    default: '',
+    default: Date.now(),
   })
-  date: number;
+  date: number = Date.now();
 
   @ApiProperty({
     type: String,

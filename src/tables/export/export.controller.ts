@@ -22,8 +22,8 @@ export class ExportController {
     return await this.exportService.findAll();
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string): Promise<ExportInterface> {
+  @Get(':id_export')
+  async findOne(@Param('id_export') id: string): Promise<ExportInterface> {
     return await this.exportService.findOne(id);
   }
 
@@ -34,14 +34,19 @@ export class ExportController {
     return await this.exportService.create(createExportDto);
   }
 
-  @Delete(':id')
-  async delete(@Param('id') id: string): Promise<ExportInterface> {
+  // @Delete(':id')
+  // async delete(@Param('id') id: string): Promise<ExportInterface> {
+  //   return await this.exportService.delete(id);
+  // }
+
+  @Delete(':id_export')
+  async delete(@Param('id_export') id: string): Promise<ExportInterface> {
     return await this.exportService.delete(id);
   }
 
-  @Put(':id')
+  @Put(':id_export')
   async update(
-    @Param('id') id: string,
+    @Param('id_export') id: string,
     @Body() updateCreateDto: CreateExportDto,
   ): Promise<ExportInterface> {
     return await this.exportService.update(id, updateCreateDto);

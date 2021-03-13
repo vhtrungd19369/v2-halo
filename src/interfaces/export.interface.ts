@@ -1,5 +1,5 @@
 export interface ExportInterface {
-  id?: string;
+  id_export?: string;
   employeesID?: string;
   contract: number;
   date: number;

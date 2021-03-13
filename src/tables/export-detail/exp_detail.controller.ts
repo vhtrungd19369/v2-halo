@@ -28,7 +28,7 @@ export class ExportDetailController {
   }
 
   @Post()
-  async careate(
+  async create(
     @Body() createExpDetailDto: CreateExpDetailDto,
   ): Promise<Exp_detailInterface> {
     return await this.expDetailService.create(createExpDetailDto);
