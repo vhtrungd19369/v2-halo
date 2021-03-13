@@ -1,4 +1,4 @@
-import { Injectable, Logger } from "@nestjs/common";
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Document } from 'mongoose';
 import { CreateExportDto } from 'src/dtos/create-export.dto';
@@ -31,10 +31,9 @@ export class ExportService {
     return await newExp.save();
   }
 
-  async delete(ID: string): Promise<ExportInterface> {
-    console.log("---------------", ID);
-
-    const res = await this.exportModel.findByIdAndDelete({_id: ID}).exec();
+  async delete(id: string): Promise<ExportInterface> {
+    // console.log("---------------", ID);
+    const res = await this.exportModel.findByIdAndDelete({ _id: id }).exec();
     console.log(res);
     return res;
   }
