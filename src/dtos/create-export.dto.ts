@@ -7,12 +7,8 @@ export class CreateExportDto {
   @ApiProperty({ type: Number, description: '', default: '' })
   readonly contract: number;
 
-  @ApiProperty({
-    type: Number,
-    description: '',
-    default: Date.now(),
-  })
-  readonly date: number = Date.now();
+  @ApiProperty({ type: Number, description: '', default: '' })
+  readonly date: number;
 
   @ApiProperty({ type: String, description: '', default: '' })
   readonly description: string;
