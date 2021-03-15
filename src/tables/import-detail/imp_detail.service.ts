@@ -14,7 +14,10 @@ export class ImportDetailService {
   async findAll(): Promise<Imp_detailInterface[]> {
     return this.impDetailModel
       .find()
-      .populate([{ path: 'importID' }, { path: 'productID' }])
+      .populate([
+        { path: 'importID', select: ['id'] },
+        { path: 'productID', select: ['id'] },
+      ])
       .exec();
   }
 

@@ -14,14 +14,14 @@ export class ExportService {
   async findAll(): Promise<ExportInterface[]> {
     return this.exportModel
       .find()
-      .populate([{ path: 'employeesID' }])
+      .populate([{ path: 'employeesID', select: ['id'] }])
       .exec();
   }
 
   async findOne(id: string): Promise<ExportInterface> {
     return this.exportModel
       .findOne({ _id: id })
-      .populate([{ path: 'employeesID' }])
+      .populate([{ path: 'employeesID', select: ['name', 'gender'] }])
       .exec();
   }
 
