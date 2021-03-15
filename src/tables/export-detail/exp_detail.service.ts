@@ -14,7 +14,10 @@ export class ExportDetailService {
   async findAll(): Promise<Exp_detailInterface[]> {
     return this.expDetailModel
       .find()
-      .populate([{ path: 'exportID' }, { path: 'productID' }])
+      .populate([
+        { path: 'exportID', select: ['id'] },
+        { path: 'productID', select: ['id'] },
+      ])
       .exec();
   }
 
@@ -22,7 +25,7 @@ export class ExportDetailService {
     // console.log('ssssssssssssssssssssss');
     return this.expDetailModel
       .findOne({ _id: id })
-      .populate([{ path: 'exportID' }, { path: 'productID', select: ['name'] }])
+      .populate([{ path: 'exportID' }, { path: 'productID' }])
       .exec();
   }
 

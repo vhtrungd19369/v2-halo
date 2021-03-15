@@ -14,14 +14,14 @@ export class ImportService {
   async findAll(): Promise<ImportInterface[]> {
     return this.importModel
       .find()
-      .populate([{ path: 'employeesID' }])
+      .populate([{ path: 'employeesID', select: ['id'] }])
       .exec();
   }
 
   async findOne(id: string): Promise<ImportInterface> {
     return this.importModel
       .findOne({ _id: id })
-      .populate([{ path: 'employeesID' }])
+      .populate([{ path: 'employeesID', select: ['name'] }])
       .exec();
   }
 
