@@ -14,7 +14,7 @@ export class ProductService {
   async findAll(): Promise<ProductInterface[]> {
     return this.productModel
       .find()
-      .populate([{ path: 'categoryID' }])
+      .populate([{ path: 'categoryID', select: 'name' }])
       .exec();
   }
 
