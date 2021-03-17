@@ -10,6 +10,7 @@ async function bootstrap() {
     .setTitle('Posting API')
     .setDescription('Posting CRUD api')
     .setVersion('4.1.6')
+    .addTag('API')
     .build();
   const doc = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api', app, doc);
