@@ -8,9 +8,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateCategoryDto } from 'src/dtos/create-category.dto';
-import { CategoryInterface } from 'src/interfaces/category.interface';
 import { CategoryService } from './category.service';
+import { CategoryInterface } from './interfaces/category.interface';
+import { CreateCategoryDto } from './dtos/create-category.dto';
 
 @Controller('category')
 @ApiTags('Category')

@@ -8,9 +8,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateImportDto } from 'src/dtos/create-import.dto';
-import { ImportInterface } from 'src/interfaces/import.interface';
 import { ImportService } from './import.service';
+import { ImportInterface } from './interfaces/import.interface';
+import { CreateImportDto } from './dtos/create-import.dto';
 
 @Controller('import')
 @ApiTags('Import')

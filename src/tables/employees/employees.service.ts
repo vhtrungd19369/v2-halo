@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Document, Model } from 'mongoose';
-import { CreateEmployeesDto } from 'src/dtos/create-employees.dto';
-import { EmployeesInterface } from 'src/interfaces/employees.interface';
+import { EmployeesInterface } from './interfaces/employees.interface';
+import { CreateEmployeesDto } from './dtos/create-employees.dto';
 
 @Injectable()
 export class EmployeesService {
@@ -27,8 +27,8 @@ export class EmployeesService {
     return await newEmp.save();
   }
 
-  async delete(ID: string): Promise<EmployeesInterface> {
-    return this.employeesModel.findByIdAndDelete(ID);
+  async delete(id: string): Promise<EmployeesInterface> {
+    return this.employeesModel.findByIdAndDelete(id);
   }
 
   async update(

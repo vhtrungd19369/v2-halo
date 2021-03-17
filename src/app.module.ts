@@ -7,9 +7,9 @@ import { ProductsModule } from './tables/products/products.module';
 import { CategoryModule } from './tables/category/category.module';
 import { EmployeesModule } from './tables/employees/employees.module';
 import { ExportModule } from './tables/export/export.module';
-import { ExportDetailModule } from './tables/export-detail/exp_detail.module';
+import { ExportDetailModule } from './tables/export-detail/export-detail.module';
 import { ImportModule } from './tables/import/import.module';
-import { ImportDetailModule } from './tables/import-detail/imp_detail.module';
+import { ImportDetailModule } from './tables/import-detail/import-detail.module';
 
 @Module({
   imports: [

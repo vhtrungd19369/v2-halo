@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { Document, Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { Imp_detailInterface } from 'src/interfaces/imp_detail.interface';
-import { CreateImpDetailDto } from '../../dtos/create-impdetail.dto';
+import { ImportDetailInterface } from './interfaces/import-detail.interface';
+import { CreateImportDetailDto } from './dtos/create-import-detail.dto';
 
 @Injectable()
 export class ImportDetailService {
   constructor(
-    @InjectModel('ImpDetail')
-    private readonly impDetailModel: Model<Imp_detailInterface & Document>,
+    @InjectModel('ImportDetail')
+    private readonly impDetailModel: Model<ImportDetailInterface & Document>,
   ) {}
 
-  async findAll(): Promise<Imp_detailInterface[]> {
+  async findAll(): Promise<ImportDetailInterface[]> {
     return this.impDetailModel
       .find()
       .populate([
@@ -21,7 +21,7 @@ export class ImportDetailService {
       .exec();
   }
 
-  async findOne(id: string): Promise<Imp_detailInterface> {
+  async findOne(id: string): Promise<ImportDetailInterface> {
     return await this.impDetailModel
       .findOne({ _id: id })
       .populate([{ path: 'importID' }, { path: 'productID' }])
@@ -29,21 +29,21 @@ export class ImportDetailService {
   }
 
   async create(
-    crtImpDetailDto: CreateImpDetailDto,
-  ): Promise<Imp_detailInterface> {
-    const newImpDetail = new this.impDetailModel({ ...crtImpDetailDto });
+    crtImpDetailDto: CreateImportDetailDto,
+  ): Promise<ImportDetailInterface> {
+    const newImpDetail = new this.impDetailModel(crtImpDetailDto);
 
     return await newImpDetail.save();
   }
 
-  async delete(id: string): Promise<Imp_detailInterface> {
+  async delete(id: string): Promise<ImportDetailInterface> {
     return this.impDetailModel.findByIdAndDelete(id);
   }
 
   async update(
     id: string,
-    impDetailInterface: CreateImpDetailDto,
-  ): Promise<Imp_detailInterface> {
+    impDetailInterface: CreateImportDetailDto,
+  ): Promise<ImportDetailInterface> {
     return this.impDetailModel.findByIdAndUpdate(id, impDetailInterface, {
       new: true,
     });

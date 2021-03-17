@@ -8,9 +8,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateEmployeesDto } from 'src/dtos/create-employees.dto';
-import { EmployeesInterface } from 'src/interfaces/employees.interface';
 import { EmployeesService } from './employees.service';
+import { EmployeesInterface } from './interfaces/employees.interface';
+import { CreateEmployeesDto } from './dtos/create-employees.dto';
 
 @Controller('employees')
 @ApiTags('Employees')

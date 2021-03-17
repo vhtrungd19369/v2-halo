@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ExpDetailSchema } from 'src/schemas/expdetail.schema';
-import { ExportDetailController } from './exp_detail.controller';
-import { ExportDetailService } from './exp_detail.service';
+import { ExportDetailSchema } from './shemas/export-detail.schema';
+import { ExportDetailController } from './export-detail.controller';
+import { ExportDetailService } from './export-detail.service';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       {
-        name: 'ExpDetail',
-        schema: ExpDetailSchema,
+        name: 'ExportDetail',
+        schema: ExportDetailSchema,
       },
     ]),
   ],
