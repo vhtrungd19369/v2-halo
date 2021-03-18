@@ -16,9 +16,9 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateProductDto } from 'src/dtos/create-product.dto';
-import { ProductInterface } from 'src/interfaces/product.interface';
 import { ProductService } from './products.service';
+import { ProductInterface } from './interfaces/product.interface';
+import { CreateProductDto } from './dtos/create-product.dto';
 
 // @ApiHeader({
 //   name: 'X-MyHeader',

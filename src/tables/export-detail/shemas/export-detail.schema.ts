@@ -1,11 +1,11 @@
 import * as mongoose from 'mongoose';
 
-export const ImpDetailSchema = new mongoose.Schema({
+export const ExportDetailSchema = new mongoose.Schema({
   quantity: Number,
   unit: String,
-  importID: {
+  exportID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Import',
+    ref: 'Export',
   },
   productID: {
     type: mongoose.Schema.Types.ObjectId,

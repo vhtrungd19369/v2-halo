@@ -1,4 +1,4 @@
-export class Imp_detailInterface {
+export class ImportDetailInterface {
   id?: string;
   productID?: string;
   importID?: string;

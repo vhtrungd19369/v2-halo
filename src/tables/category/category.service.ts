@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Document, Model } from 'mongoose';
-import { CreateCategoryDto } from 'src/dtos/create-category.dto';
-import { CategoryInterface } from 'src/interfaces/category.interface';
+import { CategoryInterface } from './interfaces/category.interface';
+import { CreateCategoryDto } from './dtos/create-category.dto';
 
 @Injectable()
 export class CategoryService {
@@ -27,15 +27,15 @@ export class CategoryService {
     return await newCat.save();
   }
 
-  async delete(Id_category: string): Promise<CategoryInterface> {
-    return this.categoryModel.findByIdAndRemove(Id_category);
+  async delete(id: string): Promise<CategoryInterface> {
+    return this.categoryModel.findByIdAndRemove(id);
   }
 
   async update(
-    Id_category: string,
-    category: CategoryInterface,
+    id: string,
+    categoryInterface: CategoryInterface,
   ): Promise<CategoryInterface> {
-    return this.categoryModel.findByIdAndUpdate(Id_category, category, {
+    return this.categoryModel.findByIdAndUpdate(id, categoryInterface, {
       new: true,
     });
   }

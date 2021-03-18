@@ -8,42 +8,42 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateImpDetailDto } from 'src/dtos/create-impdetail.dto';
-import { Imp_detailInterface } from 'src/interfaces/imp_detail.interface';
-import { ImportDetailService } from './imp_detail.service';
+import { ImportDetailService } from './import-detail.service';
+import { ImportDetailInterface } from './interfaces/import-detail.interface';
+import { CreateImportDetailDto } from './dtos/create-import-detail.dto';
 
-@Controller('impdetail')
-@ApiTags('ImpDetail')
+@Controller('import-detail')
+@ApiTags('ImportDetail')
 export class ImportDetailController {
   constructor(private readonly impDetailService: ImportDetailService) {}
 
   @Get()
-  async findAll(): Promise<Imp_detailInterface[]> {
+  async findAll(): Promise<ImportDetailInterface[]> {
     return await this.impDetailService.findAll();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Imp_detailInterface> {
+  async findOne(@Param('id') id: string): Promise<ImportDetailInterface> {
     return await this.impDetailService.findOne(id);
   }
 
   @Post()
   async create(
-    @Body() createImpDetailDto: CreateImpDetailDto,
-  ): Promise<Imp_detailInterface> {
+    @Body() createImpDetailDto: CreateImportDetailDto,
+  ): Promise<ImportDetailInterface> {
     return await this.impDetailService.create(createImpDetailDto);
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: string): Promise<Imp_detailInterface> {
+  async delete(@Param('id') id: string): Promise<ImportDetailInterface> {
     return await this.impDetailService.delete(id);
   }
 
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() updateCreateImpDetailDto: CreateImpDetailDto,
-  ): Promise<Imp_detailInterface> {
+    @Body() updateCreateImpDetailDto: CreateImportDetailDto,
+  ): Promise<ImportDetailInterface> {
     return await this.impDetailService.update(id, updateCreateImpDetailDto);
   }
 }

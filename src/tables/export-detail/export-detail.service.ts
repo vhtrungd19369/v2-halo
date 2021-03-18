@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Document, Model } from 'mongoose';
-import { CreateExpDetailDto } from 'src/dtos/create-expdetail.dto';
-import { Exp_detailInterface } from 'src/interfaces/exp_detail.interface';
+import { ExportDetailInterface } from './interfaces/export-detail.interface';
+import { CreateExportDetailDto } from './dtos/create-export-detail.dto';
 
 @Injectable()
 export class ExportDetailService {
   constructor(
-    @InjectModel('ExpDetail')
-    private readonly expDetailModel: Model<Exp_detailInterface & Document>,
+    @InjectModel('ExportDetail')
+    private readonly expDetailModel: Model<ExportDetailInterface & Document>,
   ) {}
 
-  async findAll(): Promise<Exp_detailInterface[]> {
+  async findAll(): Promise<ExportDetailInterface[]> {
     return this.expDetailModel
       .find()
       .populate([
@@ -21,8 +21,7 @@ export class ExportDetailService {
       .exec();
   }
 
-  async findOne(id: string): Promise<Exp_detailInterface> {
-    // console.log('ssssssssssssssssssssss');
+  async findOne(id: string): Promise<ExportDetailInterface> {
     return this.expDetailModel
       .findOne({ _id: id })
       .populate([{ path: 'exportID' }, { path: 'productID' }])
@@ -30,20 +29,20 @@ export class ExportDetailService {
   }
 
   async create(
-    crtExpDetailDto: CreateExpDetailDto,
-  ): Promise<Exp_detailInterface> {
+    crtExpDetailDto: CreateExportDetailDto,
+  ): Promise<ExportDetailInterface> {
     const newExpDetail = new this.expDetailModel(crtExpDetailDto);
     return await newExpDetail.save();
   }
 
-  async delete(id: string): Promise<Exp_detailInterface> {
+  async delete(id: string): Promise<ExportDetailInterface> {
     return this.expDetailModel.findByIdAndDelete(id);
   }
 
   async update(
     id: string,
-    expDetailInterface: Exp_detailInterface,
-  ): Promise<Exp_detailInterface> {
+    expDetailInterface: ExportDetailInterface,
+  ): Promise<ExportDetailInterface> {
     return this.expDetailModel.findByIdAndUpdate(id, expDetailInterface, {
       new: true,
     });

@@ -1,4 +1,4 @@
-export interface Exp_detailInterface {
+export interface ExportDetailInterface {
   id?: string;
   emportID?: string;
   productID?: string;
