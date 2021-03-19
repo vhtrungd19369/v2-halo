@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString, MinLength, MaxLength } from 'class-validator';
 
 export class CreateProductDto {
   @ApiProperty({ type: String, description: 'categoryId' })
